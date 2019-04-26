@@ -13,8 +13,11 @@ public class ReadDateFromString {
 
         DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSSXXX");
         Date date = dateFormat.parse(dateString);
-        GregorianCalendar calendar = new GregorianCalendar();
-        calendar.setTime(date);
+//        GregorianCalendar calendar = new GregorianCalendar();
+//        calendar.setTime(date);
+
+        //First month is 0
+        System.out.println(date.getMonth());
 
         System.out.println(dateFormat.format(date));
 
