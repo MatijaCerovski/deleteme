@@ -1,25 +1,22 @@
-import java.text.DateFormat;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.GregorianCalendar;
+import java.time.LocalDateTime;
+import java.time.ZonedDateTime;
+import java.time.format.DateTimeFormatter;
 
 public class ReadDateFromString {
 
 
-    public static void main(String[] args) throws ParseException {
+    public static void main(String[] args) {
 
         String dateString = "2019-04-26T10:06:18.786+02:00";
 
-        DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSSXXX");
-        Date date = dateFormat.parse(dateString);
-//        GregorianCalendar calendar = new GregorianCalendar();
-//        calendar.setTime(date);
+        DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss.SSSXXX");
+        ZonedDateTime date = ZonedDateTime.parse(dateString, dateTimeFormatter);
+
 
         //First month is 0
-        System.out.println(date.getMonth());
+        System.out.println(date.getMonthValue());
 
-        System.out.println(dateFormat.format(date));
+        System.out.println(dateTimeFormatter.format(date));
 
     }
 }
